@@ -15,6 +15,13 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
+            $table->string('nik')->unique();
+            $table->string('name');
+            $table->string('address');
+            $table->string('phone');
+            $table->unsignedBigInteger('courier_id');
+            $table->integer('point');
+            $table->integer('deposit');
             $table->timestamps();
         });
     }
