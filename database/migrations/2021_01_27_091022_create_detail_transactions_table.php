@@ -15,7 +15,17 @@ class CreateDetailTransactionsTable extends Migration
     {
         Schema::create('detail_transactions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('transaction_id');
+            $table->unsignedBigInteger('laundry_price_id');
+            $table->unsignedBigInteger('laundry_type_id');
+            $table->integer('qty');
+            $table->integer('price');
+            $table->integer('subtotal');
             $table->timestamps();
+
+            $table->foreign('transaction_id')->references('id')->on('transactions');
+            $table->foreign('laundry_type_id')->references('id')->on('laundry_types');
+            $table->foreign('laundry_price_id')->references('id')->on('laundry_prices');
         });
     }
 
