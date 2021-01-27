@@ -15,7 +15,15 @@ class CreateLaundryPricesTable extends Migration
     {
         Schema::create('laundry_prices', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('unit_type');
+            $table->unsignedBigInteger('laundry_type_id');
+            $table->integer('price');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('laundry_type_id')->references('id')->on('laundry_types');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
