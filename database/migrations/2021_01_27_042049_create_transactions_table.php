@@ -24,7 +24,7 @@ class CreateTransactionsTable extends Migration
             $table->boolean('status')->default(false);
             $table->timestamps();
 
-            $table->foreign('courier__id')->references('id')->on('users');
+            $table->foreign('courier_id')->references('id')->on('users');
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->foreign('user_id')->references('id')->on('users');
         });
