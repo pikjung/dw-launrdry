@@ -15,6 +15,7 @@ class CreateLaundryTypesTable extends Migration
     {
         Schema::create('laundry_types', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
         });
     }
