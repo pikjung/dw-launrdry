@@ -15,6 +15,11 @@ class CreateOutletsTable extends Migration
     {
         Schema::create('outlets', function (Blueprint $table) {
             $table->id();
+            $table->string('code')->unique();
+            $table->string('name');
+            $table->boolean('status')->default(false);
+            $table->string('address');
+            $table->string('phone');
             $table->timestamps();
         });
     }
